@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.12), transparent 32%),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.10), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.08), transparent 25%),
+    linear-gradient(180deg, #050505 0%, #090909 35%, #0f0f10 100%);
+  color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+html {
+  background: #050505;
+  color-scheme: dark;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #111827; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #f59e0b, #f97316); border-radius: 99px; }
+
+/* ─── Table Horizontal Scroll ────────────────────────── */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.panel-dark {
+  background: rgba(17, 17, 17, 0.78);
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px);
+}
+
+.panel-dark-soft {
+  background: rgba(24, 24, 27, 0.72);
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.dark-field {
+  background: rgba(9, 9, 9, 0.82);
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+.dark-field::placeholder {
+  color: #94a3b8;
+}
+
+.aurora-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: 0.35;
+  animation: float 10s ease-in-out infinite, glowPulse 6s ease-in-out infinite;
+}
+
+.aurora-sheen {
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* ─── Shimmer skeleton ───────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #fef3c7 25%, #fde68a 50%, #fef3c7 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 8px;
+}
+
+/* ─── Mango gradient text ────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Smooth transitions ─────────────────────────────── */
+button, a, input, select { transition: all 0.18s ease; }
+
+/* ─── Input focus ring ───────────────────────────────── */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.25);
+}

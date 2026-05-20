@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env*
+.pytest_cache/
+
+# Node / React
+Frontend/node_modules/
+Frontend/build/
+Frontend/.env*
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
