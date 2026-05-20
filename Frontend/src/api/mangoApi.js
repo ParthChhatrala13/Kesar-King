@@ -1,6 +1,6 @@
 // ─── api/mangoApi.js ─────────────────────────────────────────────────────────
 // Centralized Axios API service for Parth Mango Records
-// All calls go to FastAPI + PostgreSQL backend
+// All calls go to FastAPI + Neo4j backend
 
 import axios from "axios";
 
