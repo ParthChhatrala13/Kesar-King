@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-from app.core.config import SECRET_CODE
+from app.core.config import SECRET_CODE, OWNER_NUMBER
 from app.schema.mango_schema import LoginSchema
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
@@ -27,5 +27,5 @@ def login(data: LoginSchema):
 def forgot_password():
 
     return {
-        "owner_number": "+919106467043"
+        "owner_number": OWNER_NUMBER
     }
