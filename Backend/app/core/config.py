@@ -1,6 +1,6 @@
 
 # Secret Login Code
-SECRET_CODE = "13PK$2026"
+SECRET_CODE = "kesarkeri"
 
 # Your Mobile Number
 OWNER_NUMBER = "+919106467043"
