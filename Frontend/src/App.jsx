@@ -7,8 +7,9 @@ import LoginPage    from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import PurchasePage from "./pages/PurchasePage";
 import OtherExpensePage from "./pages/OtherExpensePage";
+import AIChatPage from "./pages/AIChatPage";
 import { ToastContainer, useToast } from "./components/Toast";
-import { FiHome, FiShoppingCart, FiDollarSign, FiLogOut } from "react-icons/fi";
+import { FiHome, FiShoppingCart, FiDollarSign, FiLogOut, FiMessageSquare } from "react-icons/fi";
 import "./index.css";
 
 // ── Auth key in sessionStorage ─────────────────────────────────────────────
@@ -68,6 +69,13 @@ export default function App() {
       icon: FiDollarSign,
       activeClass: "border border-emerald-400/30 bg-emerald-500/20 text-emerald-300",
     },
+    {
+      id: "ai-chat",
+      label: "AI",
+      desktopLabel: "AI Chat",
+      icon: FiMessageSquare,
+      activeClass: "border border-violet-400/30 bg-violet-500/20 text-violet-300",
+    },
   ];
 
   // ── Render current page ────────────────────────────────────────────────────
@@ -77,6 +85,8 @@ export default function App() {
         return <PurchasePage onLogout={handleLogout} toast={toast} />;
       case "expense":
         return <OtherExpensePage onLogout={handleLogout} toast={toast} />;
+      case "ai-chat":
+        return <AIChatPage onLogout={handleLogout} toast={toast} />;
       case "dashboard":
       default:
         return <DashboardPage onLogout={handleLogout} toast={toast} />;
@@ -115,7 +125,7 @@ export default function App() {
                 }`}
               >
                 <FiHome className="w-5 h-5" />
-                <span className="hidden md:inline text-sm font-semibold">Mango</span>
+                <span className="hidden text-sm font-semibold md:inline">Mango</span>
               </button>
               <button
                 onClick={() => handlePageChange("purchase")}
@@ -126,7 +136,7 @@ export default function App() {
                 }`}
               >
                 <FiShoppingCart className="w-5 h-5" />
-                <span className="hidden md:inline text-sm font-semibold">Purchase</span>
+                <span className="hidden text-sm font-semibold md:inline">Purchase</span>
               </button>
               <button
                 onClick={() => handlePageChange("expense")}
@@ -137,7 +147,18 @@ export default function App() {
                 }`}
               >
                 <FiDollarSign className="w-5 h-5" />
-                <span className="hidden md:inline text-sm font-semibold">Expenses</span>
+                <span className="hidden text-sm font-semibold md:inline">Expenses</span>
+              </button>
+              <button
+                onClick={() => handlePageChange("ai-chat")}
+                className={`flex items-center gap-3 rounded-lg px-4 py-3 transition-all ${
+                  currentPage === "ai-chat"
+                    ? "border border-violet-400/30 bg-violet-500/20 text-violet-300 shadow-[0_0_0_1px_rgba(168,85,247,0.08)]"
+                    : "text-slate-400 hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                <FiMessageSquare className="h-5 w-5" />
+                <span className="hidden text-sm font-semibold md:inline">{navItems[3].desktopLabel}</span>
               </button>
             </div>
 
@@ -159,7 +180,7 @@ export default function App() {
           </div>
 
           <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-black/90 backdrop-blur-xl md:hidden">
-            <div className="grid grid-cols-4 gap-1 px-2 py-2">
+            <div className="grid grid-cols-5 gap-1 px-2 py-2">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const active = currentPage === item.id;

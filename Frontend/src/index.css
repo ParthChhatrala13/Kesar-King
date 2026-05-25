@@ -34,6 +34,14 @@ html {
 ::-webkit-scrollbar-track { background: #111827; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #f59e0b, #f97316); border-radius: 99px; }
 
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: #08101f;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #38bdf8, #2563eb);
+}
+
 /* ─── Table Horizontal Scroll ────────────────────────── */
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 

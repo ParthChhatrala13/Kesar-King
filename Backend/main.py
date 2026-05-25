@@ -15,6 +15,7 @@ from app.router.mango_router import router as mango_router
 from app.router.purchase_router import router as purchase_router
 from app.router.other_expense_router import router as other_expense_router
 from app.router.download_router import router as download_router
+from app.router.ai_router import router as ai_router
 
 # Create database tables on startup
 Base.metadata.create_all(bind=engine)
@@ -25,7 +26,7 @@ frontend_url = os.getenv("FRONTEND_URL", "http://localhost:3000").rstrip("/")
 allow_origins = [
     frontend_url,
     "https://kesar-king.vercel.app",
-    "http://localhost:3000",
+    "http://localhost:3001",
     "http://127.0.0.1:3000",
 ]
 
@@ -48,3 +49,4 @@ app.include_router(mango_router)
 app.include_router(purchase_router)
 app.include_router(other_expense_router)
 app.include_router(download_router)
+app.include_router(ai_router)
